@@ -11,6 +11,7 @@ import AdminPageContainer from "./сomponents/AdminPage/AdminPageContainer";
 import HomePageContainer from "./сomponents/HomePage/HomePageContainer";
 
 const  App = () => {
+
   return (
     <div className="App">
       <HeaderContainer />
