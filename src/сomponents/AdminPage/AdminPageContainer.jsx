@@ -17,6 +17,7 @@ class AdminPageContainer extends React.Component {
                     this.props.arrayTheftReports(response.data)
                     this.props.setTheftReportsIsFetching(true)
                 }
+
             })
     }
 

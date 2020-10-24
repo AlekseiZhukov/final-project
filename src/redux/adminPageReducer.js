@@ -4,14 +4,7 @@ const UPDATE_THEFT_REPORTS_FETCHING = 'UPDATE_THEFT_REPORTS_FETCHING'
 let initialState = {
     arrayTheftReports: null,
     theftReportsIsFetching: false,
-    email: '',
-    firstName: '',
-    lastName: '',
-    password: '',
-    repassword: '',
-    clientId: '',
-    passwordMatched: false,
-    showPassword: false
+
 }
 
 

@@ -46,7 +46,7 @@ const TheftReport = (props) => {
                 color: props.state.color,
                 type: props.state.typeBike,
                 ownerFullName: props.state.ownerFullName,
-                officer: '',
+                //officer: '',
                 createdAt: date,
                 updateAt: date,
                 clientId: '099ebf16951b434e2ed9dbac12633f42',

@@ -4,6 +4,7 @@ import TheftReportItem from "./TheftReportItem/TheftReportItem";
 import Preloader from "../common/Preloader/Preloader";
 
 const AdminPage = (props) => {
+//debugger
     if (!props.state.theftReportsIsFetching) {
 
         return <Preloader />
@@ -11,28 +12,34 @@ const AdminPage = (props) => {
 
     const reportItem = props.state.arrayTheftReports.map( r => <TheftReportItem
         key={r._id}
-        numberReport={r.__v}
-        createdDate={r.createdAt}
-        statusReport={r.status}
-        description={r.description}
-        officer={''}
-        resolution={r.resolution}
+        //numberReport={r.__v}
+        //createdDate={r.createdAt}
+        //statusReport={r.status}
+        //description={r.description}
+        //officer={''}
+        //resolution={r.resolution}
+        {...r}
     />)
 
     return (
         <div>
             <table>
-                <tr>
-                    <th>Сообщение №</th>
-                    <th>дата создания</th>
-                    <th>Статус сообщения</th>
-                    <th>описание</th>
-                    <th>ответственный сотрудник</th>
-                    <th>комментарий</th>
-                    <th>удалить</th>
+                <thead>
+                    <tr>
+                        <th>Сообщение №</th>
+                        <th>дата создания</th>
+                        <th>Статус сообщения</th>
+                        <th>описание</th>
+                        <th>ответственный сотрудник</th>
+                        <th>комментарий</th>
+                        <th>удалить</th>
 
-                </tr>
-                {reportItem}
+                    </tr>
+                </thead>
+                <tbody>
+                    {reportItem}
+                </tbody>
+
             </table>
 
         </div>
