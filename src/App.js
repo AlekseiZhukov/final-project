@@ -4,8 +4,8 @@ import {Route} from "react-router-dom";
 
 
 
-import SignUpContainer from "./сomponents/SignUp/SignUpContainer";
-import SignInContainer from "./сomponents/SignIn/SignInContainer";
+import SignUpContainer from "./сomponents/Header/SignUp/SignUpContainer";
+import SignInContainer from "./сomponents/Header/SignIn/SignInContainer";
 import HeaderContainer from "./сomponents/Header/HeaderContainer";
 import AdminPageContainer from "./сomponents/AdminPage/AdminPageContainer";
 import HomePageContainer from "./сomponents/HomePage/HomePageContainer";

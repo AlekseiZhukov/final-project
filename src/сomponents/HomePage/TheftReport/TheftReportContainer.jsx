@@ -9,9 +9,9 @@ import {
     setUpdateData, setUpdatedData, setUpdateDescription, setUpdateLicenseNumber, setUpdateResolution,
     setUpdateStatus, setUpdateTypeBike
 
-} from "../../redux/TheftReportReducer";
+} from "../../../redux/TheftReportReducer";
 import TheftReport from "./TheftReport";
-import {setUpdateShowFormTheftReport} from "../../redux/homePageReducer";
+import {setUpdateShowFormTheftReport} from "../../../redux/homePageReducer";
 
 
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import style from './AdminPage.module.css';
-import TheftReportItem from "../TheftReportItem/TheftReportItem";
+import TheftReportItem from "./TheftReportItem/TheftReportItem";
 import Preloader from "../common/Preloader/Preloader";
 
 const AdminPage = (props) => {

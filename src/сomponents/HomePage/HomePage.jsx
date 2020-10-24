@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Button from "../common/Button/Button";
-import TheftReportContainer from "../TheftReport/TheftReportContainer";
+import TheftReportContainer from "./TheftReport/TheftReportContainer";
 
 const HomePage = (props) => {
 
