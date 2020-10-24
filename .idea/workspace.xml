@@ -20,15 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8bc08927-6f69-4686-84a9-b608d3e81ce8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/final-project-skillfactory.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/сomponents/AdminPage/AdminPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/сomponents/AdminPage/AdminPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/сomponents/HomePage/HomePage.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/сomponents/HomePage/HomePage.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/сomponents/TheftReport/TheftReport.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/сomponents/TheftReport/TheftReport.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +101,7 @@
       <workItem from="1603381494930" duration="10464000" />
       <workItem from="1603428006533" duration="23552000" />
       <workItem from="1603524888470" duration="3753000" />
-      <workItem from="1603528712703" duration="650000" />
+      <workItem from="1603528712703" duration="1340000" />
     </task>
     <task id="LOCAL-00001" summary="fix AdminPage">
       <created>1603528018345</created>
@@ -132,7 +124,56 @@
       <option name="project" value="LOCAL" />
       <updated>1603529358076</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="fix AdminPage">
+      <created>1603529440019</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1603529440019</updated>
+    </task>
+    <task id="LOCAL-00005" summary="fix AdminPage">
+      <created>1603529480332</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1603529480332</updated>
+    </task>
+    <task id="LOCAL-00006" summary="add Som">
+      <created>1603529560040</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1603529560040</updated>
+    </task>
+    <task id="LOCAL-00007" summary="add Som">
+      <created>1603529595171</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1603529595171</updated>
+    </task>
+    <task id="LOCAL-00008" summary="add Som">
+      <created>1603529669257</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1603529669257</updated>
+    </task>
+    <task id="LOCAL-00009" summary="fix preloader">
+      <created>1603529716697</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1603529716697</updated>
+    </task>
+    <task id="LOCAL-00010" summary="fix preloader">
+      <created>1603529765402</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1603529765402</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -151,9 +192,11 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="fix AdminPage" />
     <MESSAGE value="fix TheftReportItem" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix TheftReportItem" />
+    <MESSAGE value="fix AdminPage" />
+    <MESSAGE value="add Som" />
+    <MESSAGE value="fix preloader" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix preloader" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1714" y="431" key="#ESLint" timestamp="1603462847893">
@@ -164,10 +207,10 @@
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
     <state x="1780" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1603453712617" />
-    <state x="1951" y="88" key="CommitChangelistDialog2" timestamp="1603529356620">
+    <state x="1951" y="88" key="CommitChangelistDialog2" timestamp="1603529764214">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
-    <state x="1951" y="88" key="CommitChangelistDialog2/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1603529356620" />
+    <state x="1951" y="88" key="CommitChangelistDialog2/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1603529764214" />
     <state x="2021" y="328" width="805" height="704" key="MultipleFileMergeDialog" timestamp="1603528133192">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
