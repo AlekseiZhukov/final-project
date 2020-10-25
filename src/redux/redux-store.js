@@ -1,5 +1,5 @@
 import {combineReducers, createStore} from "redux";
-import signUpReducer from './signInReducer';
+import signUpReducer from './signUpReducer';
 import signInReducer from "./signInReducer";
 import adminPageReducer from "./adminPageReducer";
 import TheftReportReducer from "./TheftReportReducer";

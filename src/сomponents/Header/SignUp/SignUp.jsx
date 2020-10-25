@@ -53,7 +53,7 @@ const SignUp = (props) => {
                 password: props.state.password,
                 repassword: props.state.repassword,
                 clientId: props.state.clientId,
-    })
+            })
             .then(response => {
                 //console.log(response)
                 if (response.status === 201 ) {

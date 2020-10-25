@@ -1,10 +1,14 @@
 import React from 'react';
 import * as axios from "axios";
 import {connect} from "react-redux";
-//import {} from "../../redux/signInReducer";
 import AdminPage from "./AdminPage";
-import {arrayTheftReports, setTheftReportsIsFetching} from "../../redux/adminPageReducer";
-//import Preloader from "../common/Preloader/Preloader";
+import {
+    arrayTheftReports,
+    setTheftReportResolution,
+    setTheftReportsIsFetching,
+    setTheftReportStatus
+} from "../../redux/adminPageReducer";
+
 
 class AdminPageContainer extends React.Component {
 
@@ -37,4 +41,8 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { arrayTheftReports, setTheftReportsIsFetching})(AdminPageContainer)
+export default connect(mapStateToProps, { arrayTheftReports,
+                                            setTheftReportsIsFetching,
+                                            setTheftReportStatus,
+                                            setTheftReportResolution
+                    })(AdminPageContainer)
