@@ -4,6 +4,7 @@ import StatusTableCellTheftReportItem from "./statusTableCellTheftReportItem/sta
 import ResolutionTableCellTheftReportItem
     from "./resolutionTableCellTheftReportItem/ResolutionTableCellTheftReportItem";
 import * as axios from "axios";
+import {NavLink} from "react-router-dom";
 
 
 const TheftReportItem = (props) => {
@@ -36,9 +37,10 @@ const TheftReportItem = (props) => {
         props.setChangStatusReportFalse(reportId)
     }
 
+
     return (
         <tr>
-            <td>{numberReport}</td>
+            <td><NavLink to={`/report/${props._id}`} onClick={() => {}}>{numberReport}</NavLink></td>
             <td>{props.licenseNumber}</td>
             <td>{date}</td>
             <td><StatusTableCellTheftReportItem
@@ -53,7 +55,7 @@ const TheftReportItem = (props) => {
                 ? <ResolutionTableCellTheftReportItem {...props}/>
                 : props.resolution}
             </td>
-            <td><button disabled={!props.changReport} onClick={onClickButtonRefresh}>обновить сообщение</button> </td>
+            <td><button disabled={!props.changReport } onClick={onClickButtonRefresh}>обновить сообщение</button> </td>
             <td><button>удалить</button></td>
         </tr>
     )

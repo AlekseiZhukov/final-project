@@ -120,7 +120,8 @@ const TheftReport = (props) => {
                         onChange={onOwnerFullNameChange}
                     />
                 </label>
-            </div><div>
+            </div>
+            <div>
                 <label> Доп информация:
                     <textarea
                         value={props.state.description}
