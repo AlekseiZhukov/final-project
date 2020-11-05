@@ -1,15 +1,19 @@
 import React from 'react';
 import Preloader from "../../common/Preloader/Preloader";
 import SelectOfficer from "./SelectOfficer/SelectOfficer";
-import {setOfficerId} from "../../../redux/bikePageReducer";
+import style from "./BilePage.module.css";
 import Button from "../../common/Button/Button";
 import Input from "../../common/Input/Input";
+import {Redirect} from "react-router-dom";
 
 
 const BikePage =(props) => {
 
     if (!props.bikePage.allDataIsFetching) {
         return <Preloader />
+    }
+    if (props.bikePage.savedAllDataToServer) {
+        return <Redirect to={'/adminpage'} />
     }
 
     const createdAt = new Date(props.bikePage.bikePageData.createdAt).toLocaleString().split(',')[0]
@@ -65,12 +69,9 @@ const BikePage =(props) => {
             type:props.bikePage.bikePageData.type,
             ownerFullName:props.bikePage.bikePageData.ownerFullName,
             officer:props.bikePage.bikePageData.officer,
-
             updateAt: currentDate,
-
             description:props.bikePage.bikePageData.description,
             resolution: props.bikePage.bikePageData.resolution
-
         }
         if(!data.officer || data.officer.length === 0) {
             delete data.officer
@@ -78,66 +79,92 @@ const BikePage =(props) => {
         props.saveDataOnBikePage(reportId, data)
     }
 
+    const onClickCancel = () => {
+        props.setSavedAllDataToServer()
+        setTimeout(props.setSavedAllDataToServer, 10)
+    }
+
+
     return (
-        <>
-            <div>Сообщение создано {createdAt}</div>
-            <div>последнее обновление {updateAt} </div>
+        <div className={style.block}>
+            <h3>ДЕЛО № {props.bikePage.bikePageData._id}</h3>
+            <div className={style.line}></div>
+            <div className={style.dateBlock}>
+                <div>создано: {createdAt}</div>
+                <div>обновлено: {updateAt} </div>
+                <div className={style.label}>статус:
+                    <select  className={style.inputSelect} value={props.bikePage.bikePageData.status} onChange = {onChangeStatusValue} >
+                        <option value={'new'}>новое</option>
+                        <option value={'in_progress'}>идет расследование</option>
+                        <option value={'done'}>дело закрыто</option>
+                    </select>
+                </div>
+            </div>
+            <div className={style.line}></div>
 
-            <div>статус сообщения:
-                <select value={props.bikePage.bikePageData.status} onChange = {onChangeStatusValue} >
-                    <option value={'new'}>новое</option>
-                    <option value={'in_progress'}>идет расследование</option>
-                    <option value={'done'}>дело закрыто</option>
-                </select>
-            </div>
-            <div>ответственный сотрудник:
-                 <SelectOfficer
-                    array={props.bikePage.arrayOfficers}
-                    officerId={props.bikePage.bikePageData.officer}
-                    setShowListOfficers={props.setShowListOfficers}
-                    showListOfficers={props.bikePage.showListOfficers}
-                    setOfficerId={props.setOfficerId}
-                 />
-            </div>
-            <div><h1>Характеристики велосипеда</h1></div>
-            <div>Дата кражи велосипеда:
-                <Input
-                    type={'date'}
-                    value={date}
-                    onChange={onDateChange}
-                />
-            </div>
-            <div>тип велосипеда:
-                <select value={props.bikePage.bikePageData.type} onChange = {onChangeTypeBike} >
-                    <option value={'sport'}>спортивный</option>
-                    <option value={'general'}>повсеместный</option>
+            <div className={style.officerBlock}>
+                <div>ДЕЛО ведет:</div>
+                     <SelectOfficer
+                        array={props.bikePage.arrayOfficers}
+                        officerId={props.bikePage.bikePageData.officer}
+                        setShowListOfficers={props.setShowListOfficers}
+                        showListOfficers={props.bikePage.showListOfficers}
+                        setOfficerId={props.setOfficerId}
+                     />
 
-                </select>
             </div>
-            <div>Номер велосипеда: <Input type={'text'} value={props.bikePage.bikePageData.licenseNumber} onChange={onChangeLicenseNumber}/></div>
-            <div>Цвет велосипеда: <Input type={'text'} value={props.bikePage.bikePageData.color} onChange={onChangeColor}/></div>
-            <div>Владелец велосипеда: <Input type={'text'} value={props.bikePage.bikePageData.ownerFullName} onChange={onChangeOwnerFullName}/></div>
+            <div className={style.line}></div>
+            <div className={style.subTitle}>Характеристики велосипеда</div>
+            <div className={style.inputsBlockWrapper}>
+                <div className={style.inputBlock}>Дата кражи велосипеда:
+                    <Input
+                        className={style.inputDate}
+                        type={'date'}
+                        value={date}
+                        onChange={onDateChange}
+                    />
+                </div>
+                <div className={style.inputBlock}>тип велосипеда:
+                    <select className={style.inputDate} value={props.bikePage.bikePageData.type} onChange = {onChangeTypeBike} >
+                        <option value={'sport'}>спортивный</option>
+                        <option value={'general'}>повсеместный</option>
+
+                    </select>
+                </div>
+
+            </div>
+            <div className={style.inputsBlockWrapper}>
+                <div className={style.inputBlock}>Номер велосипеда: <Input className={style.inputText} type={'text'} value={props.bikePage.bikePageData.licenseNumber} onChange={onChangeLicenseNumber}/></div>
+                <div className={style.inputBlock}>Цвет велосипеда: <Input className={style.inputText} type={'text'} value={props.bikePage.bikePageData.color} onChange={onChangeColor}/></div>
+            </div >
+            <div className={style.inputBlock}>Владелец велосипеда: <Input className={style.inputText} type={'text'} value={props.bikePage.bikePageData.ownerFullName} onChange={onChangeOwnerFullName}/></div>
             <div>
-                <label> описание:
+                <label  className={style.textareaBlockWrapper}> описание:
                     <textarea
+                        className={style.textarea}
                         value={props.bikePage.bikePageData.description}
                         onChange={onDescriptionChange}
                     />
                 </label>
             </div>
-            <hr></hr>
-            <div><h2>Результат расследования</h2></div>
+            <div className={style.line}></div>
+            <div className={style.subTitle}>Результат расследования</div>
 
-            <div>
+            <div className={style.textareaResolution}>
                 {props.bikePage.bikePageData.status === 'done' ? <textarea
+                    className={style.textarea}
                     value={props.bikePage.bikePageData.resolution}
                     onChange={onResolutionChange}
-                /> : <div>{props.bikePage.bikePageData.resolution}</div>}
+                /> : <div >{props.bikePage.bikePageData.resolution}</div>}
 
 
             </div>
-            <Button onClick={onClickSaveData} value={'сохранить'}/>
-        </>
+            <div className={style.line}></div>
+            <div className={style.buttonBlock}>
+                <Button className={style.button} onClick={onClickSaveData} value={'сохранить'}/>
+                <Button className={style.button} onClick={onClickCancel} value={'отменить'}/>
+            </div>
+        </div>
     )
 }
 export default BikePage

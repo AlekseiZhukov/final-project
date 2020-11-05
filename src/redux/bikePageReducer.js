@@ -11,6 +11,7 @@ const UPDATE_OWNER_FULLNAME_IN_BIKE_PAGE_DATA = 'UPDATE_OWNER_FULLNAME_IN_BIKE_P
 const UPDATE_DESCRIPTION_IN_BIKE_PAGE_DATA = 'UPDATE_DESCRIPTION_IN_BIKE_PAGE_DATA';
 const UPDATE_TYPE_IN_BIKE_PAGE_DATA = 'UPDATE_TYPE_IN_BIKE_PAGE_DATA';
 const UPDATE_RESOLUTION_IN_BIKE_PAGE_DATA = 'UPDATE_RESOLUTION_IN_BIKE_PAGE_DATA';
+const UPDATE_SAVES_ALL_DATA_TO_SERVER = 'UPDATE_SAVES_ALL_DATA_TO_SERVER';
 
 
 
@@ -19,7 +20,7 @@ let initialState = {
     arrayOfficers: null,
     allDataIsFetching: false,
     showListOfficers: false,
-    //bikePageArrayOfficersIsFetching: false
+    savedAllDataToServer: false
 
 }
 
@@ -117,6 +118,12 @@ const BikePageReducer = (state=initialState, action) => {
                     resolution: action.resolution
                 }
             }
+        case UPDATE_SAVES_ALL_DATA_TO_SERVER:
+            return {
+                ...state,
+                savedAllDataToServer: !state.savedAllDataToServer
+                }
+
         default:
             return state;
     }
@@ -135,5 +142,6 @@ export const setOwnerFullName =(ownerFullName) => ({type: UPDATE_OWNER_FULLNAME_
 export const setDescription =(description) => ({type: UPDATE_DESCRIPTION_IN_BIKE_PAGE_DATA, description});
 export const setTypeBike =(typeBike) => ({type: UPDATE_TYPE_IN_BIKE_PAGE_DATA, typeBike});
 export const setResolution =(resolution) => ({type: UPDATE_RESOLUTION_IN_BIKE_PAGE_DATA, resolution});
+export const setSavedAllDataToServer =() => ({type: UPDATE_SAVES_ALL_DATA_TO_SERVER});
 
 export default BikePageReducer

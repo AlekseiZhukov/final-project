@@ -1,11 +1,9 @@
 import Button from "../../common/Button/Button";
-
 import React from "react";
 import Input from "../../common/Input/Input";
-import * as axios from "axios";
+import style from './TheftReport.module.css'
 
 const TheftReport = (props) => {
-
 
     const onClickButtonCancel = () => {
         props.setUpdateShowFormTheftReport()
@@ -15,7 +13,7 @@ const TheftReport = (props) => {
         let date = new Date(event.target.value).toISOString().split('T')[0]
         props.setUpdateData(date)
     }
-    const onlicenseNumberChange = (event) => {
+    const onLicenseNumberChange = (event) => {
         let licenseNumber = event.target.value
         props.setUpdateLicenseNumber(licenseNumber)
     }
@@ -36,110 +34,72 @@ const TheftReport = (props) => {
         props.setUpdateDescription(description)
     }
 
-    const onClickButtonSendTheftReport = () => {
-        let date = new Date().toISOString().split('T')[0]
-        axios.post('http://84.201.129.203:8888/api/public/report',
-            {
-                status: 'new',
-                date: props.state.date,
-                licenseNumber: props.state.licenseNumber,
-                color: props.state.color,
-                type: props.state.typeBike,
-                ownerFullName: props.state.ownerFullName,
-                //officer: '',
-                createdAt: date,
-                updateAt: date,
-                clientId: '099ebf16951b434e2ed9dbac12633f42',
-                description: props.state.description,
-                resolution: '',
-            })
-            .then(response => {
-                console.log(response)
-                if (response.status === 200 ) {
-                    alert('Сообщение принято');
-                }
-
-            })
-
-            .catch(error => {
-                if (error.response) {
-                    alert(`${error.response.statusText}, ${error.response.data.error.message}`)
-                }
-            })
+    const onClickButtonSendTheftReport =() => {
+        props.onClickButtonSendTheftReport()
     }
 
-
+    const disabledButtonSendReport = props.state.description.length > 0
+        && props.state.ownerFullName.length > 0 && props.state.typeBike.length > 0 &&
+                    props.state.color.length > 0 && props.state.licenseNumber.length > 0 &&
+                            props.state.date.length > 0
 
     return (
 
-        <div>
-            <h1>Сообщение о краже:</h1>
-
-            <div>
-                <label> Дата кражи:
+        <div className={style.theftReportBlock}>
+            <div className={style.theftReportBlockWrapper}>
+            <h3>Сообщение о краже:</h3>
+                <label className={style.label}> <span>Дата кражи:</span>
                     <Input
+                        className={style.inputDate}
                         type={'date'}
                         value={props.state.date}
                         onChange={onDateChange}
                     />
                 </label>
-            </div>
-            <div>
-                <label> Номер велосипеда:
+                <label className={style.label}> <span>Номер велосипеда:</span>
                     <Input
+                        className={style.input}
                         type={'text'}
                         value={props.state.licenseNumber}
-                        onChange={onlicenseNumberChange}
+                        onChange={onLicenseNumberChange}
                     />
                 </label>
-            </div>
-            <div>
-                <label> Цвет велосипеда:
+                <label className={style.label}> <span>Цвет велосипеда:</span>
                     <Input
+                        className={style.input}
                         type={'text'}
                         value={props.state.color}
                         onChange={onColorChange}
                     />
                 </label>
-            </div>
-            <div>
-                <label> Тип велосипеда:
-                    <select value={props.state.typeBike} onChange = {onTypeChange} >
-                        <option value={''}>выберите тип велосипеда</option>
+                <label className={style.label}> <span>Тип велосипеда:</span>
+                    <select className={style.inputSelect} value={props.state.typeBike} onChange = {onTypeChange} >
+                        <option value={''}>выберите тип</option>
                         <option value={'sport'}>спортивный</option>
                         <option value={'general'}>дорожный</option>
                     </select>
 
                 </label>
-            </div>
-            <div>
-                <label> Имя владельца:
+                <label className={style.label}> <span>Имя владельца:</span>
                     <Input
+                        className={style.input}
                         type={'text'}
                         value={props.state.ownerFullName}
                         onChange={onOwnerFullNameChange}
                     />
                 </label>
-            </div>
-            <div>
-                <label> Доп информация:
-                    <textarea
+                <textarea
+                    className={style.textarea}
+                        placeholder={'введите дополнительную информация'}
                         value={props.state.description}
                         onChange={onDescriptionChange}
-                    />
-                </label>
+
+                />
+            <div className={style.buttonBlock}>
+            <button className={style.button} onClick={onClickButtonSendTheftReport}  disabled={!disabledButtonSendReport} >Отправить</button>
+            <Button className={style.button} onClick={onClickButtonCancel} value={'Отмена'}/>
             </div>
-
-
-            { (props.state.date).length
-                && (props.state.licenseNumber).length
-                && (props.state.color).length
-                && (props.state.typeBike).length
-                && (props.state.ownerFullName).length ?
-            <Button onClick={onClickButtonSendTheftReport} value={'Сообщить о краже'}/> : null}
-            <Button onClick={onClickButtonCancel} value={'Закрыть форму'}/>
-
-
+            </div>
         </div>
     )
 }

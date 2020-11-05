@@ -1,0 +1,33 @@
+.mainBlock {
+    color: #61dafb;
+    margin: 0 auto;
+    margin-top: 1vw;
+    padding: 2vw  5vw 3vw;
+    border-radius: 5vw;
+    max-width:90vw;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.7);
+}
+.navLinkBlock {
+    min-width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+}
+.navLinkBlock span {
+    text-align: center;
+    width: 22vw;
+    height: 3vw;
+    border: 1px #61dafb solid;
+    border-radius: 1vw;
+    background-color: black;
+    padding-top: .2vw;
+    font-size: 2vw;
+}
+.navLinkBlock span:hover {
+    cursor: pointer;
+}

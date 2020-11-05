@@ -1,6 +1,9 @@
 import React from 'react';
-import s from './TheftReportItem.module.css'
-import StatusTableCellTheftReportItem from "./statusTableCellTheftReportItem/statusTableCellTheftReportItem";
+import style from './TheftReportItem.module.css'
+import checkOk from './../../../../assets/images/ok.svg'
+import greenCheckOk from './../../../../assets/images/greenOk.svg'
+import trash from './../../../../assets/images/trash.svg'
+import pen from './../../../../assets/images/pen.svg'
 import ResolutionTableCellTheftReportItem
     from "./resolutionTableCellTheftReportItem/ResolutionTableCellTheftReportItem";
 import * as axios from "axios";
@@ -12,51 +15,98 @@ const TheftReportItem = (props) => {
     let numberReport = props.numberReport + 1
     let date = new Date(props.createdAt).toLocaleString().split(',')[0]
 
-    const onclickCellResolution = () => {
-        let reportId = props._id
-        props.setWriteFinalCommentTheftReport(reportId)
+    const onChangeStatus = (event) => {
+        let statusReport = event.target.value;
+        let id = props._id;
+        props.setTheftReportStatus(statusReport, id);
     }
 
-    const onClickButtonRefresh =() => {
-        let resolution = props.resolution;
-        let statusReport = props.status
-        let date = new Date().toISOString().split('T')[0];
-        let token = localStorage.getItem('token');
-        let reportId = props._id;
+    const onClickButtonSaveButton = () => {
+
+        const date = new Date().toISOString().split('T')[0];
+        const token = localStorage.getItem('token');
+        const reportId = props._id;
 
         axios.put(`http://84.201.129.203:8888/api/cases/${reportId}`,
             {
-                status: statusReport,
-                resolution: resolution,
+                status: props.status,
+                resolution: props.resolution,
                 updateAt: date,
             },
             {
                 headers: {Authorization: `Bearer ${token}`}
-            }
-        );
-        props.setChangStatusReportFalse(reportId)
+            })
+            .then(response => {
+                if (response.status == 200) {
+                    props.setDataChangedFalse(reportId)
+                    props.setWriteFinalCommentTheftReportFalse(reportId)
+                }
+            })
     }
 
+    const onClickButtonDelete = () => {
+        const reportId = props._id;
+
+        const token = localStorage.getItem('token');
+        axios.delete(`http://84.201.129.203:8888/api/cases/${reportId}`,
+            {headers: {Authorization: `Bearer ${token}`}})
+            .then(res => {
+                console.log(res)
+                props.deleteReport(reportId);
+            })
+    }
+
+    const officerFullName = props.arrayOfficers.map(officer => {
+        if (officer._id === props.officer) {
+            return `${officer.firstName} ${officer.lastName}`
+        }
+        return 'сотрудник не назначен'
+    })
 
     return (
         <tr>
-            <td><NavLink to={`/report/${props._id}`} onClick={() => {}}>{numberReport}</NavLink></td>
-            <td>{props.licenseNumber}</td>
+            <td><NavLink to={`/reports/${props._id}`}><img className={style.img} src={pen} alt={''}/></NavLink></td>
+
             <td>{date}</td>
-            <td><StatusTableCellTheftReportItem
-                changeReportStatus={props.changeReportStatus}
-                id={props._id}
-                status={props.status}
-            /></td>
-            <td>{props.description}</td>
-            <td>{props.officer ? props.officer :  'сотрудник не назначен'}</td>
-            <td onClick={onclickCellResolution} >
-                {props.status === 'done' && props.writeFinalComment
-                ? <ResolutionTableCellTheftReportItem {...props}/>
-                : props.resolution}
+            <td>
+                <select className={style.inputSelect} value={props.status} onChange={onChangeStatus}>
+                    <option value={'new'}>новое</option>
+                    <option value={'in_progress'}>в процессе</option>
+                    <option value={'done'}>закрыто</option>
+                </select>
             </td>
-            <td><button disabled={!props.changReport } onClick={onClickButtonRefresh}>обновить сообщение</button> </td>
-            <td><button>удалить</button></td>
+            <td>{props.description}</td>
+            <td>{props.officer ? officerFullName : 'сотрудник не назначен'}</td>
+            <td>
+                {props.status === 'done' && props.dataChanged && !props.writeFinalComment
+                    ? <ResolutionTableCellTheftReportItem
+                        resolution={props.resolution}
+                        setTheftReportResolution={props.setTheftReportResolution}
+                        setWriteFinalCommentTheftReport={props.setWriteFinalCommentTheftReport}
+                        reportId={props._id}
+                    />
+                    : props.resolution}
+            </td>
+            <td>
+                <div onClick={onClickButtonSaveButton}>
+                    <img
+                        className={!props.dataChanged ? style.img : style.imgOk}
+                        src={!props.dataChanged ? checkOk : greenCheckOk}
+                        alt={''}
+                    />
+                </div>
+
+            </td>
+            <td>
+                <div onClick={onClickButtonDelete}>
+                    <img
+                        className={style.trash}
+                        src={trash}
+                        alt={''}
+                    />
+                </div>
+
+            </td>
         </tr>
     )
 }

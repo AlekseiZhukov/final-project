@@ -1,8 +1,8 @@
 import preloader from "../../../assets/images/grid.svg";
 import React from "react";
 
-const Preloader = () => {
+const SendingLoader = () => {
     return <div><img src={preloader} alt={""}/></div>
 }
 
-export default Preloader;
+export default SendingLoader;

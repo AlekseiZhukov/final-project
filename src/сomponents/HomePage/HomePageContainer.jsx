@@ -12,7 +12,8 @@ import HomePage from "./HomePage";
 const mapStateToProps = (state) => {
 
     return {
-        state: state.homePage
+        state: state.homePage,
+        showSendingLoader: state.theftForm.showSendingLoader
     }
 }
 

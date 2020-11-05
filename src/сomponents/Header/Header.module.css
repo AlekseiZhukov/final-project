@@ -1,8 +1,95 @@
-.headerWrapper {
-    height: 100px;
-    background: green;
+
+
+
+.headerBlock {
+    background: black;
+    padding: 15px 0;
+    color: white;
 }
 
-.headerLink {
-    color: #61dafb;
+.headerWrapper {
+    margin: 0 auto;
+    max-width:90vw;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
 }
+
+.signInBlock {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    position: relative;
+    width: 24vw;
+}
+.signInButton {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    padding:   0 0.7vw;
+    text-align: start;
+    height: 4.9vw;
+    width: 14vw;
+    color: #61dafb;
+    font-size: 1.7vw;
+
+    border: 2px solid #61dafb;
+    border-radius: 1vw;
+}
+
+.signInButton:hover {
+    cursor: pointer;
+}
+.signInBlockWrapper {
+    position: relative;
+}
+.imgAva {
+    height: 7vw;
+    margin-right: 1.5vw;
+}
+.arrow {
+    position: relative;
+    height: 2.3vw;
+}
+
+.officerNameBlock {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    height: 5vw;
+    color: #61dafb;
+    font-size: 1.7vw;
+    width: 19vw;
+}
+.exitButton {
+    text-align: center;
+    width: 8vw;
+    border:1px  #61dafb solid;
+    border-radius: 1vw;
+    font-size: 1.7vw
+}
+.exitButton:hover {
+    cursor: pointer;
+}
+.navBlock {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    width: 15vw;
+}
+
+.imgLink {
+    width: 5vw;
+}
+
+

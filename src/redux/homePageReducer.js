@@ -1,6 +1,9 @@
 
 const UPDATE_SHOW_FORM_THEFT_REPORT ='UPDATE_SHOW_FORM_THEFT_REPORT'
+
+
 let initialState = {
+
     showFormTheftReport: false
 }
 
@@ -18,5 +21,4 @@ const homePageReducer = (state = initialState, action) => {
 }
 
 export const setUpdateShowFormTheftReport =() => ({type: UPDATE_SHOW_FORM_THEFT_REPORT});
-
 export default homePageReducer

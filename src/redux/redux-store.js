@@ -1,14 +1,12 @@
 import {combineReducers, createStore} from "redux";
-import signUpReducer from './signUpReducer';
-import signInReducer from "./signInReducer";
 import adminPageReducer from "./adminPageReducer";
 import TheftReportReducer from "./TheftReportReducer";
 import homePageReducer from "./homePageReducer";
 import bikePageReducer from './bikePageReducer'
+import headerReducer from "./headerReducer";
 
 let reducers = combineReducers({
-    signUp: signUpReducer,
-    signIn: signInReducer,
+    header: headerReducer,
     adminPage: adminPageReducer,
     theftForm: TheftReportReducer,
     homePage: homePageReducer,

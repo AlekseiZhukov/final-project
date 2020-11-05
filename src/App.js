@@ -4,8 +4,8 @@ import {Route} from "react-router-dom";
 
 
 
-import SignUpContainer from "./сomponents/Header/SignUp/SignUpContainer";
-import SignInContainer from "./сomponents/Header/SignIn/SignInContainer";
+//import SignUpContainer from "./сomponents/Header/SignUp/SignUpContainer";
+//import SignInContainer from "./сomponents/Header/SignIn/SignInContainer";
 import HeaderContainer from "./сomponents/Header/HeaderContainer";
 import AdminPageContainer from "./сomponents/AdminPage/AdminPageContainer";
 import HomePageContainer from "./сomponents/HomePage/HomePageContainer";
@@ -16,14 +16,15 @@ const  App = () => {
   return (
     <div className="App">
       <HeaderContainer />
-      <Route path={'/'} exact component={HomePageContainer} />
-      <Route path={'/sign_up'} exact render={ () => <SignUpContainer />} />
-      <Route path={'/sign_in'} exact render={ () => <SignInContainer />} />
-      <Route path={'/adminpage'} exact render={ () => <AdminPageContainer />} />
-      <Route path={'/report/:messageid?'} exact component = {BikePageContainer} />
+      <Route exact path={'/'}  component={HomePageContainer} />
+
+      <Route exact path={'/adminpage'}  render={ () => <AdminPageContainer />} />
+      <Route path={'/reports/:messageid?'} exact component = {BikePageContainer} />
 
     </div>
   );
 }
 
 export default App;
+//<Route exact path={'/sign_up'}  render={ () => <SignUpContainer />} />
+//<Route exact path={'/sign_in'}  render={ () => <SignInContainer />} />

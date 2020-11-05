@@ -2,9 +2,8 @@ import React from 'react';
 import style from './SignUp.module.css';
 import Input from "../../common/Input/Input";
 import Button from "../../common/Button/Button";
-import * as axios from "axios";
-
-
+import closedEye from './../../../assets/images/closedEye.svg'
+import openEye from './../../../assets/images/openEye.svg'
 
 const SignUp = (props) => {
 
@@ -40,103 +39,76 @@ const SignUp = (props) => {
     }
 
     const onClickCancelButton = () => {
-        props.cetCancelRequest()
+        props.setCancelRequestRegistry()
+        props.setShowSignUpForm(false)
     }
 
     const onClickAddEmployee = () => {
-
-        axios.post('http://84.201.129.203:8888/api/auth/sign_up',
-            {
-                email: props.state.email,
-                firstName: props.state.firstName,
-                lastName: props.state.lastName,
-                password: props.state.password,
-                repassword: props.state.repassword,
-                clientId: props.state.clientId,
-            })
-            .then(response => {
-                //console.log(response)
-                if (response.status === 201 ) {
-                    alert('Сотрудник создан');
-                }
-
-            })
-
-            .catch(error => {
-                if (error.response) {
-                    alert(`${error.response.statusText}, ${error.response.data.error.message}`)
-                }
-            })
+        props.onClickAddEmployee()
     }
-
 
     return (
 
-        <div>
-            <div>
-                <label> email:
-                    <Input
-                        type={'email'}
-                        value={props.state.email}
-                        onChange={onEmailChange}
-                    />
-                </label>
-            </div>
+        <div className={style.signUpForm}>
+            <div className={style.signUpFormWrapper}>
+                <h3>регистрация</h3>
+                <Input
+                    placeholder = {'введите e-mail'}
+                    type={'email'}
+                    value={props.state.email}
+                    onChange={onEmailChange}
+                    className={style.inputSignUp}
+                />
+                <Input
+                    placeholder = {'введите имя'}
+                    type={'text'}
+                    value={props.state.firstName}
+                    onChange={onFirstNameChange}
+                    className={style.inputSignUp}
+                />
+                <Input
+                    placeholder = {'введите фамилию'}
+                    type={'text'}
+                    value={props.state.lastName}
+                    onChange={onLastNameChange}
+                    className={style.inputSignUp}
+                />
 
-            <div>
-                <label> first name:
-                    <Input
-                        type={'text'}
-                        value={props.state.firstName}
-                        onChange={onFirstNameChange}
-                    />
-                </label>
-            </div>
 
-            <div>
-                <label> last name:
-                    <Input
-                        type={'text'}
-                        value={props.state.lastName}
-                        onChange={onLastNameChange}
-                    />
-                </label>
-            </div>
+                <div className={style.passwordBlock}>
+                    <div className={style.passwordWrapper}>
+                        <Input
+                            placeholder = {'введите пароль'}
+                            type={ props.state.showPassword ? 'text' : 'password'}
+                            value={props.state.password}
+                            onChange={onPasswordChange}
+                            className={props.state.passwordMatched ? `${style.passwordMatched}` : `${style.passwordNotMatch}`}
+                        />
+                        <Input
+                            placeholder = {'повторите пароль'}
+                            type={ props.state.showPassword ? 'text' : 'password'}
+                            value={props.state.repassword}
+                            onChange={onRePasswordChange}
+                            className={props.state.passwordMatched ? `${style.passwordMatched}` : `${style.passwordNotMatch}`}
+                        />
+                    </div>
+                    <div onClick={onClickShowHidePassword}>
+                        <img className={style.eyePassword} src={props.state.showPassword ? openEye : closedEye} alt={''}/>
+                    </div>
+                </div>
+                <Input
+                    placeholder = {'введите client id'}
+                    type={'text'}
+                    value={props.state.clientId}
+                    onChange={onClientIdChange}
+                    className={style.inputSignUp}
+                />
+                <div className={style.buttonBlock}>
+                    <Button value={'регистрация'} onClick={onClickAddEmployee} className={style.signInFormButton}/>
+                    <Button value={'отменить'} onClick={onClickCancelButton} className={style.signInFormButton}/>
+                </div>
 
-            <div>
-                <label> password:
-                    <Input
-                        type={ props.state.showPassword ? 'text' : 'password'}
-                        value={props.state.password}
-                        onChange={onPasswordChange}
-                        className={props.state.passwordMatched ? `${style.passwordMatched}` : `${style.passwordNotMatch}`}
-                    /><br></br>
-                    <label>retry password
-                    <Input
-                        type={ props.state.showPassword ? 'text' : 'password'}
-                        value={props.state.repassword}
-                        onChange={onRePasswordChange}
-                        className={props.state.passwordMatched ? `${style.passwordMatched}` : `${style.passwordNotMatch}`}
-                    /></label><br></br>
-                    <Button
-                        value={props.state.showPassword ? 'Hide password' : 'Show password'}
-                        onClick={onClickShowHidePassword}
-                    />
-                </label>
             </div>
-
-            <div>
-                <label> Client Id:
-                    <Input
-                        type={'text'}
-                        value={props.state.clientId}
-                        onChange={onClientIdChange}
-                    />
-                </label>
-            </div>
-            <Button value={'Зарегистрироваться'} onClick={onClickAddEmployee}/>
-            <Button value={'Отменить'} onClick={onClickCancelButton}/>
-
         </div>
     )
 }

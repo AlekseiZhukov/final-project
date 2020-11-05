@@ -1,1 +1,40 @@
 /*css*/
+.textBlock {
+
+}
+.textBlockWrapper {
+    color: #61dafb;
+    margin: 0 auto;
+    margin-top: 3vw;
+    padding: 2vw  5vw 3vw;
+    border-radius: 5vw;
+    max-width:90vw;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.7);
+}
+.textBlockWrapper h1 {
+    font-size: 3vw;
+}
+.textBlockWrapper p {
+    font-size: 2vw;
+    line-height: 1.5;
+    letter-spacing: 1px;
+    text-indent: 50px;
+}
+.button {
+    text-align: center;
+    width: 38vw;
+    height: 3vw;
+    color: #61dafb;
+    background-color: black;
+    border:1px  #61dafb solid;
+    border-radius: 1vw;
+    font-size: 1.7vw
+}
+.button:hover {
+    cursor: pointer;
+}

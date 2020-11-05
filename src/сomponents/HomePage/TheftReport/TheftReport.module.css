@@ -1,1 +1,107 @@
 /*css file*/
+.theftReportBlock {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .8);
+    top: 0;
+    right: 0;
+}
+.theftReportBlockWrapper {
+    position: relative;
+    top: 10vh;
+    left: 28vw;
+    width: 45vw;
+    height: 75vh;
+    background-color: black;
+    border: 2px #61dafb solid ;
+    border-radius: 1vw;
+    font-size: 1.7vw;
+    padding: 1vw;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-around;
+}
+.theftReportBlockWrapper h3 {
+    margin: 0;
+    font-weight: lighter;
+    text-transform: uppercase;
+}
+.label {
+    display: flex;
+    width: 88%;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+}
+.label span {
+    margin-right: 2vw;
+}
+.input {
+    height:  2.7vw;
+    width: 52%;
+    font-size: 1.7vw;
+    font-weight: lighter;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px #61dafb solid;
+    color: #61dafb;
+}
+.inputDate, .inputSelect {
+    height:  2.5vw;
+    width: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    font-size: 1.7vw;
+    font-weight: bolder;
+    border-radius: .7vw;
+    border: none;
+}
+.textarea {
+    height:  7vw;
+    width: 88%;
+    font-size: 1.3vw;
+    font-weight: lighter;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px #61dafb solid;
+    border-top: 1px #61dafb solid;
+    border-radius: 1vw;
+    color: #61dafb;
+    resize: none;
+
+}
+.textarea::placeholder {
+    text-align: center;
+    color: rgba(97, 218, 251, 0.2);
+    font-size: 1.7vw;
+    font-style: italic;
+    font-weight: lighter;
+}
+.buttonBlock {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center ;
+    justify-content: space-between;
+    width: 80%;
+    height: 3.5vw;
+}
+
+.button {
+    width: 12vw;
+    height: 2.5vw;
+    background: black;
+    border: 1px #61dafb solid;
+    border-radius: 1vw;
+    color: #61dafb;
+    font-size: 1.5vw;
+}
+.button:hover {
+    cursor: pointer;
+}
+.button:disabled {
+    color: rgba(97, 218, 251, 0.2);
+    border: 1px red solid;
+    cursor: auto;
+}
+

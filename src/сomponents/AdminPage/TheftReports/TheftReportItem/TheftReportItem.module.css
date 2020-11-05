@@ -1,0 +1,22 @@
+.trash, .img {
+    width: 2vw;
+    height: auto;
+}
+.imgOk {
+    width: 2vw;
+    height: auto;
+    cursor: pointer;
+    filter: drop-shadow( 0px 3px 3px green )
+}
+.trash:hover {
+    cursor: pointer;
+}
+.inputSelect {
+    height:  2vw;
+    width: 95%;
+    background-color: rgba(255, 255, 255, 0.5);
+    font-size: 1.2vw;
+    font-weight: bolder;
+    border-radius: .7vw;
+    border: none;
+}

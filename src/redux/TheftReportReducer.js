@@ -12,6 +12,7 @@ const UPDATE_DESCRIPTION = 'UPDATE_DESCRIPTION';
 const UPDATE_RESOLUTION = 'UPDATE_RESOLUTION';
 const UPDATE_CLIENT_ID = 'UPDATE_CLIENT_ID';
 const CANCEL_REQUEST = 'CANCEL_REQUEST';
+const UPDATE_SHOW_SENDING_LOADER = 'UPDATE_SHOW_SENDING_LOADER';
 
 
 let initialState = {
@@ -27,6 +28,7 @@ let initialState = {
     clientId: '',
     description: '',
     resolution: '',
+    showSendingLoader: false
 
 
 }
@@ -94,6 +96,11 @@ const TheftReportReducer = (state = initialState, action) => {
                 ...state,
                 resolution: action.resolution,
             };
+        case UPDATE_SHOW_SENDING_LOADER:
+                    return {
+                        ...state,
+                        showSendingLoader: !state.showSendingLoader,
+                    };
 
         case CANCEL_REQUEST:
             return {
@@ -128,4 +135,5 @@ export const setUpdateClientId =(clientId) => ({type: UPDATE_CLIENT_ID, clientId
 export const setUpdateDescription =(description) => ({type: UPDATE_DESCRIPTION, description: description});
 export const setUpdateResolution =(resolution) => ({type: UPDATE_RESOLUTION, resolution: resolution});
 export const cetCancelRequest = () => ({type: CANCEL_REQUEST})
+export const setUpdateShowSendingLoader = () => ({type: UPDATE_SHOW_SENDING_LOADER})
 export default TheftReportReducer

@@ -1,6 +1,6 @@
 import React from 'react'
-
-
+import pen from '../../../../assets/images/pen.svg'
+import style from '../BilePage.module.css'
 const SelectOfficer = (props) => {
 
     const onClickShowListOfficers = () => {
@@ -29,10 +29,12 @@ const SelectOfficer = (props) => {
 
     return (
         <>
-            <div onClick={onClickShowListOfficers}>{officerFullName}, изменить</div>
-
+            <div>{officerFullName}</div>
+            <div onClick={onClickShowListOfficers}><img className={style.pen} src={pen} alt={''} /></div>
             {props.showListOfficers ?
-                <ul>{optionItem}</ul>
+                <ul className={style.listOfficers}>
+                    {optionItem}
+                </ul>
                 : null }
 
         </>

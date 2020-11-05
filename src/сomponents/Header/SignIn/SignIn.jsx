@@ -2,12 +2,18 @@ import React from 'react';
 import style from './SignIn.module.css';
 import Input from "../../common/Input/Input";
 import Button from "../../common/Button/Button";
-import * as axios from "axios";
+import {Redirect} from "react-router-dom";
+import closedEye from './../../../assets/images/closedEye.svg'
+import openEye from './../../../assets/images/openEye.svg'
+
 
 
 
 const SignIn = (props) => {
 
+    if (props.state.authorized) {
+        return <Redirect to={'/adminpage'} />
+    }
     const onEmailChange = (event) => {
         let newEmail = event.target.value;
         props.setUpdateEmail(newEmail)
@@ -22,71 +28,45 @@ const SignIn = (props) => {
     }
 
     const onClickCancelButton = () => {
-        props.cetCancel()
+        props.setCancelRequestSignIn()
+        props.setShowSignInForm(false)
     }
 
     const onClickButtonSubmit = () => {
-
-        axios.post('http://84.201.129.203:8888/api/auth/sign_in',
-            {
-                email: props.state.email,
-                password: props.state.password,
-            })
-            .then(response => {
-                console.log(response, response.data.token)
-                if (response.status === 200 ) {
-                    alert('вы авторизованы');
-                    localStorage.setItem('token', response.data.token);
-                    props.cetCancel()
-                    props.setAuthorized()
-                }
-
-            })
-            .catch(error => {
-                if (error.response) {
-                    alert(`${error.response.statusText}, ${error.response.data.error.message}`)
-                    props.cetCancel()
-                }
-            })
-
+        props.setShowSignInForm(false)
+        props.onClickButtonSubmit()
     }
 
 
     return (
 
-        <div>
-            <div>
-                <label> email:
-                    <Input
-                        type={'email'}
-                        value={props.state.email}
-                        onChange={onEmailChange}
-                    />
-                </label>
-            </div>
-
-            <div>
-                <label> password:
+        <div className={style.signInForm}>
+            <div className={style.signInFormWrapper}>
+                <h3>вход</h3>
+                <Input
+                    placeholder = {'введите e-mail'}
+                    type={'email'}
+                    value={props.state.email}
+                    onChange={onEmailChange}
+                    className={style.inputSignIn}
+                />
+                <div className={style.passwortInput}>
                     <Input
                         type={ props.state.showPassword ? 'text' : 'password'}
                         value={props.state.password}
                         onChange={onPasswordChange}
-                        className={style.password}
+                        className={style.inputSignIn}
+                        placeholder = {'введите password'}
                     />
-                    <Button
-                        value={props.state.showPassword ? 'Hide password' : 'Show password'}
-                        onClick={onClickShowHidePassword}
-                    />
-
-                </label>
+                    <div onClick={onClickShowHidePassword}>
+                        <img className={style.eyePassword} src={props.state.showPassword ? openEye : closedEye} alt={''}/>
+                    </div>
+                </div>
+                <div className={style.passwortInput}>
+                    <Button value={'войти'} onClick={onClickButtonSubmit} className={style.signInFormButton}/>
+                    <Button value={'Отменить'} onClick={onClickCancelButton} className={style.signInFormButton}/>
+                </div>
             </div>
-
-            <div>
-
-            </div>
-            <Button value={'авторизоваться'} onClick={onClickButtonSubmit}/>
-            <Button value={'Отменить'} onClick={onClickCancelButton}/>
-
         </div>
     )
 }

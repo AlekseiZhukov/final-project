@@ -1,65 +1,58 @@
-
-
-.signInForm {
+.theftReportBlock {
     position: fixed;
-    width: 100vw;
-    height: 100vw;
+    width: 100%;
+    height: 100%;
     background-color: rgba(0, 0, 0, .8);
     top: 0;
     right: 0;
 }
-.signInFormWrapper {
+.theftReportBlockWrapper {
+    text-align: center;
     position: relative;
-    top: 10vw;
+    top: 10vh;
     left: 28vw;
-    width: 40vw;
-    height: 22vw;
+    width: 45vw;
+    height: auto;
     background-color: black;
     border: 2px #61dafb solid ;
     border-radius: 1vw;
     font-size: 1.7vw;
     padding: 1vw;
+
+}
+
+.form {
     display: flex;
     flex-flow: column nowrap;
-    align-items: center;
     justify-content: space-around;
+    align-items: center;
+    min-height: 15vw;
+    width: 100%;
 }
-.signInFormWrapper h3 {
-    margin: 0;
-    font-weight: lighter;
-    text-transform: uppercase;
-}
-.inputSignIn {
-    height:  3.5vw;
-    width: 80%;
-    font-size: 1.7vw;
+
+.textarea {
+    height:  10vw;
+    width: 88%;
+    font-size: 1.3vw;
     font-weight: lighter;
     background-color: transparent;
     border: none;
     border-bottom: 1px #61dafb solid;
+    border-top: 1px #61dafb solid;
+    border-radius: 1vw;
     color: #61dafb;
+    resize: none;
+
 }
-.inputSignIn::placeholder {
+.textarea::placeholder {
+    text-align: center;
     color: rgba(97, 218, 251, 0.2);
+    font-size: 1.7vw;
     font-style: italic;
     font-weight: lighter;
-    font-family: sans-serif;
-    text-transform: unset;
 }
-.eyePassword {
-    width: 4vw;
-    height: auto;
-
-}
-.passwortInput {
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center ;
-    justify-content: space-between;
-    width: 80%;
-
-}
-.signInFormButton {
+.buttonOff,
+.button {
     width: 12vw;
     height: 2.5vw;
     background: black;
@@ -68,6 +61,10 @@
     color: #61dafb;
     font-size: 1.5vw;
 }
-.signInFormButton:hover {
+.buttonOff {
+    border: 1px red solid;
+    color: rgba(97, 218, 251, 0.2);
+}
+.button:hover {
     cursor: pointer;
 }

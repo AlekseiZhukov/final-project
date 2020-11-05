@@ -1,31 +1,37 @@
 import React from 'react'
+import style from "./resolutionTableCellTheftReportItem.module.css";
 
 
 const ResolutionTableCellTheftReportItem = (props) => {
 
-    const handleSubmit = () => {
-        let reportId = props._id
-        props.setChangStatusReportTrue(reportId)
-        props.setWriteFinalCommentTheftReportFalse(reportId)
+    const handleSubmit = (event) => {
+        let reportId = props.reportId
+        props.setWriteFinalCommentTheftReport(reportId)
+        console.log("кнопка коментария нажата")
+        event.preventDefault();
     }
-    const onBlurTextarea = () => {
-        let reportId = props._id
-        props.setWriteFinalCommentTheftReportFalse(reportId)
-}
+
     const handleChange = (event) => {
         let resolution = event.target.value;
-        let id = props._id;
+        let id = props.reportId;
         props.setTheftReportResolution(resolution, id)
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <label>
-                Заполните коментарий:
-                <textarea value={props.resolution} onChange={handleChange} onBlur={onBlurTextarea}/>
-            </label>
-            <input type="submit" value="Отправить" />
-        </form>
+        <div className={style.theftReportBlock}>
+            <div className={style.theftReportBlockWrapper}>
+                <h3>Заполните завершающий комментарий:</h3>
+                <form onSubmit={handleSubmit} className={style.form}>
+                        <textarea
+                            placeholder={'напишите свой комментарий к делу'}
+                            className={style.textarea}
+                            value={props.resolution}
+                            onChange={handleChange}
+                        />
+                    <input className={props.resolution ? style.button : style.buttonOff} type="submit" value="Отправить" disabled={!props.resolution}/>
+                </form>
+            </div>
+        </div>
 )
 }
 export default ResolutionTableCellTheftReportItem

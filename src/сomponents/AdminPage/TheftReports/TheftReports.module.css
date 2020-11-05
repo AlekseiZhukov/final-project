@@ -1,0 +1,40 @@
+
+.blockWrapper {
+    margin-top: 2vw;
+    text-align: center;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: rgba(0, 0, 0, .5);
+    font-size: 1.3vw;
+}
+table td {
+    padding: .5vw 1vw;
+}
+table thead tr {
+    font-weight: bold;
+    border-top: 1px solid #61dafb;
+    font-size: 1.7vw;
+}
+table tr {
+    border-bottom: 1px solid #61dafb;
+}
+table tbody tr:hover {
+    background: rgba(0, 0, 0, .5);
+}
+.buttonAddNewReport {
+    margin: 1vw auto 0 ;
+    padding-top: 0.2vw;
+    text-align: center;
+    width: 15vw;
+    height: 2.5vw;
+    font-size: 1.5vw;
+    background-color: black;
+    color: #61dafb;
+    border: #61dafb 1px solid;
+    border-radius: 1vw;
+}
+.buttonAddNewReport:hover {
+    cursor: pointer;
+}
