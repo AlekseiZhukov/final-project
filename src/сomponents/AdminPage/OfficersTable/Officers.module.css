@@ -1,0 +1,26 @@
+
+.blockWrapper {
+    margin-top: 2vw;
+    text-align: center;
+    width: 100%;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: rgba(0, 0, 0, .5);
+    font-size: 1.3vw;
+}
+table td {
+    padding: .5vw 1vw;
+}
+table thead tr {
+    font-weight: bold;
+    border-top: 1px solid #61dafb;
+    font-size: 1.7vw;
+}
+table tr {
+    border-bottom: 1px solid #61dafb;
+}
+table tbody tr:hover {
+    background: rgba(0, 0, 0, .5);
+}

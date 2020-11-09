@@ -12,7 +12,7 @@ import {NavLink} from "react-router-dom";
 
 const TheftReportItem = (props) => {
 
-    let numberReport = props.numberReport + 1
+
     let date = new Date(props.createdAt).toLocaleString().split(',')[0]
 
     const onChangeStatus = (event) => {
@@ -37,7 +37,7 @@ const TheftReportItem = (props) => {
                 headers: {Authorization: `Bearer ${token}`}
             })
             .then(response => {
-                if (response.status == 200) {
+                if (response.status === 200) {
                     props.setDataChangedFalse(reportId)
                     props.setWriteFinalCommentTheftReportFalse(reportId)
                 }

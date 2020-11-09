@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './AdminPage.module.css'
 import TheftReportsContainer from "./TheftReports/TheftReportsContainer";
-import OfficersContainer from "./Officers/OfficersContainer";
+import OfficersContainer from "./OfficersTable/OfficersContainer";
 
 
 

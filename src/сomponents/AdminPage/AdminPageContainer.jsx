@@ -37,7 +37,7 @@ class AdminPageContainer extends React.Component {
             }))
             .catch(error => {
                 if (error) {
-                    console.log(error.response)
+                   // console.log(error.response)
 
                 }
             })

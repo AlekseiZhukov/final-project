@@ -7,9 +7,11 @@ const UPDATE_WRITE_FINAL_COMMENT_TRUE = 'UPDATE_WRITE_FINAL_COMMENT_TRUE'
 const UPDATE_DATA_CHANGED_FALSE = 'UPDATE_DATA_CHANGED_FALSE'
 const UPDATE_WRITE_FINAL_COMMENT_FALSE = 'UPDATE_WRITE_FINAL_COMMENT_FALSE'
 const DELETE_REPORT = 'DELETE_REPORT'
+const DELETE_OFFICER = 'DELETE_OFFICER'
 const UPDATE_THEFT_REPORT_SENDING = 'UPDATE_THEFT_REPORT_SENDING'
 const UPDATE_SHOW_THEFT_REPORTS = 'UPDATE_SHOW_THEFT_REPORTS'
 const UPDATE_SHOW_OFFICERS = 'UPDATE_SHOW_OFFICERS'
+const UPDATE_OFFICER_APPROVED = 'UPDATE_OFFICER_APPROVED'
 
 
 let initialState = {
@@ -74,6 +76,21 @@ const adminPageReducer = (state = initialState, action) => {
                 })
             }
 
+        case UPDATE_OFFICER_APPROVED:
+            return {
+                ...state,
+                arrayOfficers: state.arrayOfficers.map(officer => {
+                    if(officer.clientId === action.data.clientId) {
+                        return {
+                            ...officer,
+                            approved: action.data.approved
+
+                        }
+                    }
+                    return officer
+                })
+            }
+
         case UPDATE_WRITE_FINAL_COMMENT_TRUE:
              return {
                  ...state,
@@ -122,6 +139,13 @@ const adminPageReducer = (state = initialState, action) => {
                 arrayTheftReports: state.arrayTheftReports.filter(report => report._id !== action.id )
             }
 
+        case DELETE_OFFICER:
+
+            return {
+                ...state,
+                arrayOfficers: state.arrayOfficers.filter(officer => officer.clientId !== action.clientId )
+            }
+
         case UPDATE_THEFT_REPORT_SENDING:
             return {
                 ...state,
@@ -155,5 +179,7 @@ export const setDataChangedFalse =(id) => ({type: UPDATE_DATA_CHANGED_FALSE, id}
 export const setTheftReportSending =() => ({type: UPDATE_THEFT_REPORT_SENDING});
 export const setShowTheftReports =(showTheftReports) => ({type: UPDATE_SHOW_THEFT_REPORTS, showTheftReports});
 export const setShowOfficers =(showOfficers) => ({type: UPDATE_SHOW_OFFICERS, showOfficers});
+export const setOfficerApproved =(approved, clientId) => ({type: UPDATE_OFFICER_APPROVED, data: {approved, clientId}});
+export const setDeleteOfficer =(clientId) => ({type: DELETE_OFFICER, clientId});
 
 export default adminPageReducer

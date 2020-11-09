@@ -1,0 +1,25 @@
+.trash, .img {
+    width: 2vw;
+    height: auto;
+}
+.no_approved {
+    width: 7.5vw;
+    height: 2vw;
+    cursor: pointer;
+    color: red;
+    border: red 1px solid;
+    border-radius: .7vw;
+
+}
+.approved {
+    width: 7.5vw;
+    height: 2vw;
+    cursor: auto;
+    color: green;
+    border: green 1px solid;
+    border-radius: .7vw;
+
+}
+.trash:hover {
+    cursor: pointer;
+}
