@@ -17,8 +17,10 @@
   <component name="ChangeListManager">
     <list default="true" id="8bc08927-6f69-4686-84a9-b608d3e81ce8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/сomponents/AdminPage/TheftReports/TheftReports.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/сomponents/AdminPage/TheftReports/TheftReports.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/сomponents/AdminPage/TheftReports/TheftReports.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/сomponents/AdminPage/TheftReports/TheftReports.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/сomponents/AdminPage/BikePage/BikePage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/сomponents/AdminPage/BikePage/BikePage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/сomponents/AdminPage/BikePage/BilePage.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/сomponents/AdminPage/BikePage/BikePage.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/сomponents/AdminPage/BikePage/SelectOfficer/SelectOfficer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/сomponents/AdminPage/BikePage/SelectOfficer/SelectOfficer.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +129,9 @@
       <workItem from="1604919160017" duration="8626000" />
       <workItem from="1604946367196" duration="695000" />
       <workItem from="1605079555761" duration="41000" />
-      <workItem from="1605164220046" duration="956000" />
+      <workItem from="1605164220046" duration="2577000" />
+      <workItem from="1605636996989" duration="435000" />
+      <workItem from="1605714765485" duration="1725000" />
     </task>
     <task id="LOCAL-00001" summary="fix AdminPage">
       <created>1603528018345</created>
@@ -255,7 +259,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604943899763</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="fix TheftReports.module.css">
+      <created>1605165273921</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1605165273921</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -296,7 +307,8 @@
     <MESSAGE value="fix all app. Added style" />
     <MESSAGE value="fix TheftReports and AdminPage" />
     <MESSAGE value="fix OfficerPage, added save dataButton" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix OfficerPage, added save dataButton" />
+    <MESSAGE value="fix TheftReports.module.css" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix TheftReports.module.css" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1874" y="154" key="#Deployment" timestamp="1603559963861">
@@ -315,18 +327,18 @@
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
     <state x="2056" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1604394122892" />
-    <state x="1617" y="129" key="CommitChangelistDialog2" timestamp="1604943895290">
+    <state x="1617" y="129" key="CommitChangelistDialog2" timestamp="1605165271237">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
-    <state x="1617" y="129" key="CommitChangelistDialog2/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1604943895290" />
+    <state x="1617" y="129" key="CommitChangelistDialog2/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1605165271237" />
     <state x="2021" y="328" width="805" height="704" key="MultipleFileMergeDialog" timestamp="1603528133192">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
     <state x="2021" y="328" width="805" height="704" key="MultipleFileMergeDialog/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1603528133192" />
-    <state x="1822" y="103" key="Vcs.Push.Dialog.v2" timestamp="1604943910574">
+    <state x="1822" y="103" key="Vcs.Push.Dialog.v2" timestamp="1605165284562">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
-    <state x="1822" y="103" key="Vcs.Push.Dialog.v2/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1604943910574" />
+    <state x="1822" y="103" key="Vcs.Push.Dialog.v2/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1605165284562" />
     <state x="1458" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1603528681041">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>

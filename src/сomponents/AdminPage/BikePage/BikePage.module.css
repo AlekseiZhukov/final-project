@@ -54,6 +54,11 @@
     align-items: center;
     justify-content: space-between;
 }
+.penWrapper {
+    width: 2vw;
+    height: auto;
+    cursor: pointer;
+}
 .pen {
     width: 2vw;
     height: auto;

@@ -1,6 +1,6 @@
 import React from 'react'
 import pen from '../../../../assets/images/pen.svg'
-import style from '../BilePage.module.css'
+import style from '../BikePage.module.css'
 const SelectOfficer = (props) => {
 
     const onClickShowListOfficers = () => {
@@ -30,7 +30,7 @@ const SelectOfficer = (props) => {
     return (
         <>
             <div>{officerFullName}</div>
-            <div onClick={onClickShowListOfficers}><img className={style.pen} src={pen} alt={''} /></div>
+            <div className={style.penWrapper} onClick={onClickShowListOfficers}><img className={style.pen} src={pen} alt={'изменит'} /></div>
             {props.showListOfficers ?
                 <ul className={style.listOfficers}>
                     {optionItem}
